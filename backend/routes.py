@@ -429,7 +429,9 @@ def seed_demo_data(db: Session = Depends(get_db)) -> dict:
     for item in sample_defects:
         exists = db.query(RoadDefect).filter(RoadDefect.ticket_id == item["ticket_id"]).first()
         if not exists:
-            db.add(RoadDefect(**item, timestamp=datetime.utcnow()))
+            item_copy = item.copy()
+            item_copy.pop("hours_ago", None)
+            db.add(RoadDefect(**item_copy, timestamp=datetime.utcnow()))
 
     for inc in sample_incidents:
         exists_inc = db.query(VehicleIncident).filter(
@@ -437,7 +439,9 @@ def seed_demo_data(db: Session = Depends(get_db)) -> dict:
             VehicleIncident.incident_type == inc["incident_type"]
         ).first()
         if not exists_inc:
-            db.add(VehicleIncident(**inc, timestamp=datetime.utcnow()))
+            inc_copy = inc.copy()
+            inc_copy.pop("hours_ago", None)
+            db.add(VehicleIncident(**inc_copy, timestamp=datetime.utcnow()))
 
     db.commit()
     return {"status": "success", "message": f"Seeded {len(sample_defects)} defects and {len(sample_incidents)} incidents."}
