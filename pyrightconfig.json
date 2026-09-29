@@ -1,0 +1,15 @@
+{
+  "include": [
+    ".",
+    "backend",
+    "ai_engine"
+  ],
+  "extraPaths": [
+    ".",
+    "backend",
+    "ai_engine",
+    "./.venv/Lib/site-packages",
+    "c:/Users/godsi/OneDrive/Attachments/Desktop/SIH Project/.venv/Lib/site-packages"
+  ]
+}
+

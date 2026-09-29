@@ -1,0 +1,12 @@
+{
+  "name": "bharat-urban-intelligence-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bharat Urban Intelligence Platform - SIH 2026",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "start": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview"
+  }
+}
